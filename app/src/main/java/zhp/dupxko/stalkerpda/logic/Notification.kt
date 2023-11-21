@@ -20,6 +20,28 @@ class Notification : Service() {
 
     override fun onBind(p0: Intent?): IBinder? {
         TODO("Not yet implemented")
+        //potrzebjemy tego?
+    }
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        return super.onStartCommand(intent, flags, startId)
+        //todo
+        // If the system kills your service, it restarts it as soon as resources become available,
+        // but this also depends on the value that you return from onStartCommand().
+        // For more information about when the system might destroy a service,
+        // see the Processes and Threading document.
+        // https://developer.android.com/guide/components/processes-and-threads
+    }
+
+
+    override fun onCreate() {
+        //todo podejrzewam że tu trzeba będzie utworzyć obiekty związane z powiadomieniem
+        super.onCreate()
+    }
+
+    override fun onDestroy() {
+        //todo podejrzewam że tu trzeba będzie zniszczyć/uwolnić obiekty związane z powiadomieniem
+        super.onDestroy()
     }
 
     fun createNotificationChannel(a: String?) {

@@ -1,5 +1,7 @@
 package zhp.dupxko.stalkerpda
 
+import android.content.ComponentName
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +12,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import zhp.dupxko.stalkerpda.databinding.ActivityMainBinding
+import zhp.dupxko.stalkerpda.logic.Notification
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +35,14 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        val locatorServiceIntent = Intent()
+        locatorServiceIntent.component = ComponentName("zhp.dupxko.stalkerpda.logic","Notification")
+        startService(locatorServiceIntent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

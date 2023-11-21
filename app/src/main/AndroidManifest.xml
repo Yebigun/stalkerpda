@@ -29,7 +29,16 @@
             </intent-filter>
         </activity>
 
+        <!--https://developer.android.com/guide/topics/manifest/service-element-->
+        <!--TODO foreground service type jest od API 34 do zastanowienia czy to chcemy
+                https://developer.android.com/guide/components/fg-service-types
+         -->
+        <!--TODO jakie spermisje będą nam potrzebne?
+        -->
         <service
+            android:description="TODO user readable string that describes service"
+            android:label="TODO user readable name"
+            android:icon="TODO"
             android:name=".logic.Notification"
             android:foregroundServiceType="mediaPlayback"
             android:exported="false">
