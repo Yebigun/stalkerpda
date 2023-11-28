@@ -1,8 +1,15 @@
 package zhp.dupxko.stalkerpda
 
+import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -11,8 +18,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import androidx.core.app.ActivityCompat
 import zhp.dupxko.stalkerpda.databinding.ActivityMainBinding
-import zhp.dupxko.stalkerpda.logic.Notification
+import zhp.dupxko.stalkerpda.logic.LocationForegroundService
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,16 +29,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setSupportActionBar(binding.toolbar)
-
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
-
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
@@ -40,9 +44,29 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        val locatorServiceIntent = Intent()
-        locatorServiceIntent.component = ComponentName("zhp.dupxko.stalkerpda.logic","Notification")
-        startService(locatorServiceIntent)
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                Log.d("gaysex","NAM PIZDA")
+                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS),0)
+            }
+        } else {
+            Log.d("gaysex","jechane z tym koksem")
+        }
+
+        Intent(applicationContext, LocationForegroundService::class.java).also {
+            it.action = LocationForegroundService.Actions.START.toString()
+            startService(it)
+        }
+
+
+//        val channel = NotificationChannel("diary_eneterance","aaa", NotificationManager.IMPORTANCE_HIGH)
+//        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

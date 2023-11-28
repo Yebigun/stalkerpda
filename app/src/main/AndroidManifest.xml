@@ -3,12 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA"/>
-
-
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
+        android:name=".logic.RunningApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -28,22 +26,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!--https://developer.android.com/guide/topics/manifest/service-element-->
-        <!--TODO foreground service type jest od API 34 do zastanowienia czy to chcemy
-                https://developer.android.com/guide/components/fg-service-types
-         -->
-        <!--TODO jakie spermisje będą nam potrzebne?
-        -->
         <service
-            android:description="TODO user readable string that describes service"
-            android:label="TODO user readable name"
-            android:icon="TODO"
-            android:name=".logic.Notification"
+            android:name=".logic.LocationForegroundService"
             android:foregroundServiceType="mediaPlayback"
-            android:exported="false">
-        </service>
-
+            />
     </application>
 
 </manifest>
