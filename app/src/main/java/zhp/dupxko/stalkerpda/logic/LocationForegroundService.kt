@@ -13,7 +13,7 @@ class LocationForegroundService : Service() {
     private val notificationId = 111
 
     override fun onBind(p0: Intent?): IBinder? {
-        return null;
+        return null
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
