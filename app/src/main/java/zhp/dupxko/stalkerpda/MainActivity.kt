@@ -19,11 +19,17 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import androidx.core.app.ActivityCompat
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import zhp.dupxko.stalkerpda.databinding.ActivityMainBinding
 import zhp.dupxko.stalkerpda.logic.LocationForegroundService
 
 class MainActivity : AppCompatActivity() {
 
+    private var longitude: Double? = null
+    private var latitude: Double? = null
+
+    private lateinit var fusedLocationClient: FusedLocationProviderClient       //lokalizacja
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
@@ -34,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -62,11 +69,6 @@ class MainActivity : AppCompatActivity() {
             startService(it)
         }
 
-
-//        val channel = NotificationChannel("diary_eneterance","aaa", NotificationManager.IMPORTANCE_HIGH)
-//        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -89,5 +91,26 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+
+    fun getLastKnownLocation() {
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            return
+        }
+        fusedLocationClient.lastLocation
+            .addOnSuccessListener { location->
+                if (location != null) {
+                    latitude =  location?.latitude
+                    longitude = location?.longitude
+                }
+
+            }
     }
 }
