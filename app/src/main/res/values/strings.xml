@@ -2,7 +2,9 @@
     <string name="app_name">Stalker PDA</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Strings regarding diary entries and tracking files -->
     <string name="entries_status_tracking_filename">zhp.dupxko.stalkerpda.entriestracker</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

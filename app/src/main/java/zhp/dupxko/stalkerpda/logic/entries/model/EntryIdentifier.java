@@ -1,7 +1,7 @@
-package zhp.dupxko.stalkerpda.logic.entries;
+package zhp.dupxko.stalkerpda.logic.entries.model;
 
 //TODO add more info about entries when we know anything more about them
-public enum EntryIdentifiers {
+public enum EntryIdentifier {
     ENTRY_1,
     ENTRY_2,
     ENTRY_3,
