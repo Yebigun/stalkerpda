@@ -1,4 +1,4 @@
-package zhp.dupxko.stalkerpda.logic.entries.exception
+package zhp.dupxko.stalkerpda.logic.entrytracking.exception
 
 class UnlockedEntriesTrackerFileNotExistsException :
     //this thing below is a primary constructor which passes predefined message to super

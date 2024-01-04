@@ -59,4 +59,10 @@ dependencies {
 
     // (Optional) If you need "Parameterized Tests"
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.10.0")
+
+    // Jetpack Media3 media player
+    implementation "androidx.media3:media3-exoplayer:1.2.0"
+    implementation "androidx.media3:media3-exoplayer-dash:1.2.0"
+    implementation "androidx.media3:media3-ui:1.2.0"
+    implementation "androidx.media3:media3-session:1.2.0"
 }

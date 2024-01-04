@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
-import zhp.dupxko.stalkerpda.logic.entries.exception.EntryAlreadyUnlockedException
-import zhp.dupxko.stalkerpda.logic.entries.implementation.UnlockedEntriesService
-import zhp.dupxko.stalkerpda.logic.entries.implementation.dao.UnlockedEntriesTrackerDAO
-import zhp.dupxko.stalkerpda.logic.entries.model.EntryIdentifier
+import zhp.dupxko.stalkerpda.logic.entrytracking.exception.EntryAlreadyUnlockedException
+import zhp.dupxko.stalkerpda.logic.entrytracking.implementation.UnlockedEntriesService
+import zhp.dupxko.stalkerpda.logic.entrytracking.implementation.dao.UnlockedEntriesTrackerDAO
+import zhp.dupxko.stalkerpda.logic.entrytracking.model.EntryIdentifier
 
 class UnlockedEntriesServiceTest {
 

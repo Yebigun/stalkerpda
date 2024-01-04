@@ -1,7 +1,7 @@
-package zhp.dupxko.stalkerpda.logic.entries.implementation.dao
+package zhp.dupxko.stalkerpda.logic.entrytracking.implementation.dao
 
-import zhp.dupxko.stalkerpda.logic.entries.exception.UnlockedEntriesTrackerFileNotExistsException
-import zhp.dupxko.stalkerpda.logic.entries.model.EntryIdentifier
+import zhp.dupxko.stalkerpda.logic.entrytracking.exception.UnlockedEntriesTrackerFileNotExistsException
+import zhp.dupxko.stalkerpda.logic.entrytracking.model.EntryIdentifier
 import java.io.File
 
 internal class FileBasedUnlockedEntriesTrackerDAO(

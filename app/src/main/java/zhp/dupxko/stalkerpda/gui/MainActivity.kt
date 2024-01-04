@@ -1,10 +1,6 @@
-package zhp.dupxko.stalkerpda
+package zhp.dupxko.stalkerpda.gui
 
 import android.Manifest
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.content.ComponentName
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -21,6 +17,7 @@ import android.view.MenuItem
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import zhp.dupxko.stalkerpda.R
 import zhp.dupxko.stalkerpda.databinding.ActivityMainBinding
 import zhp.dupxko.stalkerpda.logic.LocationForegroundService
 

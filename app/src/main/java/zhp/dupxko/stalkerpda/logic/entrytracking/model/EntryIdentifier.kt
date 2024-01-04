@@ -1,4 +1,4 @@
-package zhp.dupxko.stalkerpda.logic.entries.model
+package zhp.dupxko.stalkerpda.logic.entrytracking.model
 
 //TODO add more info about entries when we know anything more about them
 enum class EntryIdentifier {

@@ -1,4 +1,4 @@
-package zhp.dupxko.stalkerpda
+package zhp.dupxko.stalkerpda.gui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import zhp.dupxko.stalkerpda.R
 import zhp.dupxko.stalkerpda.databinding.FragmentSecondBinding
 
 /**

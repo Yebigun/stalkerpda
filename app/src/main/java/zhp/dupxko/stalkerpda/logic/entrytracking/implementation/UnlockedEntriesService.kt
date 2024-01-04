@@ -1,9 +1,9 @@
-package zhp.dupxko.stalkerpda.logic.entries.implementation
+package zhp.dupxko.stalkerpda.logic.entrytracking.implementation
 
 import arrow.core.Either
-import zhp.dupxko.stalkerpda.logic.entries.exception.EntryAlreadyUnlockedException
-import zhp.dupxko.stalkerpda.logic.entries.implementation.dao.UnlockedEntriesTrackerDAO
-import zhp.dupxko.stalkerpda.logic.entries.model.EntryIdentifier
+import zhp.dupxko.stalkerpda.logic.entrytracking.exception.EntryAlreadyUnlockedException
+import zhp.dupxko.stalkerpda.logic.entrytracking.implementation.dao.UnlockedEntriesTrackerDAO
+import zhp.dupxko.stalkerpda.logic.entrytracking.model.EntryIdentifier
 
 class UnlockedEntriesService(
     private val trackerDao: UnlockedEntriesTrackerDAO

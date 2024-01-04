@@ -1,6 +1,6 @@
-package zhp.dupxko.stalkerpda.logic.entries.implementation.dao
+package zhp.dupxko.stalkerpda.logic.entrytracking.implementation.dao
 
-import zhp.dupxko.stalkerpda.logic.entries.model.EntryIdentifier
+import zhp.dupxko.stalkerpda.logic.entrytracking.model.EntryIdentifier
 
 interface UnlockedEntriesTrackerDAO {
     fun addUnlockedEntry(identifier: EntryIdentifier)
